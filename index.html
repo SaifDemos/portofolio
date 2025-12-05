@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Saif Ayman Mohammed (SaifDemos) – Cybersecurity-inspired interactive portfolio showcasing hardware hacking, reverse engineering, and open-source projects."
+    />
+    <title>SaifDemos // Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loader-terminal">
+        <div class="loader-header">
+          <span>root@SaifDemos: ~/boot</span>
+          <span class="dot green"></span>
+        </div>
+        <pre class="loader-ascii" id="loaderAscii">
+   ____            __   __           __                           
+  / __/__  ___  __/ /__/ /  ___ ____/ /__  ___ ____  ___ ____ ___ 
+ _\ \/ _ \/ _ \/ _  / _  /__/ _ `/ _  / _ \/ _ `/ _ \/ _ `/ -_|_-<
+/___/\___/_//_/\_,_/\_,_(_)__\_,_/\_,_/\___/\_,_/_//_/\_, /\__/___/
+                                                     /___/         
+        </pre>
+        <div class="loader-log" id="loaderLog"></div>
+        <div class="loader-footer">
+          <span class="loader-status" id="loaderStatus">
+            [ INIT ] establishing secure channel...
+          </span>
+          <span class="loader-progress" id="loaderProgress">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="matrix-bg" aria-hidden="true">
+      <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#">
+        <span class="brand-badge">[root@Saif]</span>
+        <span class="brand-name">SaifDemos</span>
+        <span class="brand-cursor">_</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open navigation" id="navToggle">
+        ☰
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="#about">About</a>
+        <a href="#skills">Stack</a>
+        <a href="#lab">Lab</a>
+        <a href="#timeline">Timeline</a>
+        <a href="projects.html" class="pill pill-primary">Projects</a>
+        <a href="#contact" class="outline">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <p class="eyebrow">// Hardware Hacker & Reverse Engineer</p>
+          <h1>
+            <span class="glitch" data-text="SaifDemos">SaifDemos</span>
+            <span class="sub-name">Saif Ayman Mohammed</span>
+          </h1>
+          <p class="hero-copy">
+            19 y.o. Computer Science student at Alexandria University. Building
+            secure self-hosted labs, dissecting custom protocols, and blending
+            C++, Java, JavaScript, and Assembly to emulate the hardware I love.
+          </p>
+          <div class="cta-row">
+            <a class="pill pill-primary" href="projects.html">
+              Browse Live Projects
+            </a>
+            <a class="pill pill-ghost" href="#contact">Open Comms</a>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <span class="label">Focus</span>
+              <p>Reverse Engineering · Cybersecurity · Custom Protocols</p>
+            </div>
+            <div>
+              <span class="label">Toolchain</span>
+              <p>Java · JavaFX · C++ · JS/TS · HTML/CSS · Assembly</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="card stack-card">
+            <div class="card-header">
+              <span>live_status.sh</span>
+              <span class="dot green"></span>
+            </div>
+            <div class="card-body terminal" id="terminalFeed"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="panel">
+        <div class="panel-header">
+          <h2>About</h2>
+          <p>
+            Student in the Faculty of Science @ Alexandria University,
+            Department of Computer Science. I thrive at the intersection of
+            hardware tinkering, networking, and secure systems design.
+          </p>
+        </div>
+        <div class="about-grid">
+          <article class="card about-card">
+            <h3>Why I build</h3>
+            <p>
+              I love open-source culture, self-hosted infrastructure, and
+              reverse engineering the tech I use daily.
+            </p>
+            <ul>
+              <li>Xbox 360 wireless protocol deep dives</li>
+              <li>ESP32 controller emulation</li>
+              <li>Home lab automation (n8n, gaming hubs)</li>
+            </ul>
+          </article>
+          <article class="card about-card">
+            <h3>Currently learning</h3>
+            <p>
+              Discrete math, low-level assembly, and the tooling required to
+              ship secure firmware & desktop experiences.
+            </p>
+            <ul>
+              <li>Advanced JavaFX UI systems</li>
+              <li>Binary analysis & RE pipelines</li>
+              <li>Linux-first deployment strategies</li>
+            </ul>
+          </article>
+          <article class="card about-card highlight">
+            <h3>Stacks I speak</h3>
+            <p>Java, JavaFX, C++, JavaScript, HTML, CSS, Assembly basics.</p>
+            <p>Comfortable jumping between firmware, backend, and UI layers.</p>
+          </article>
+          <figure class="about-card portrait">
+            <img src="./me.webp" alt="Portrait of Saif Ayman Mohammed" />
+            <figcaption>Always learning, always shipping.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="skills" class="panel">
+        <div class="panel-header">
+          <h2>Stack Signal</h2>
+          <p>Hover each module to peek under the hood.</p>
+        </div>
+        <div class="skills-grid" id="skillsGrid">
+          <div class="skill-chip" data-detail="JavaFX dashboards & desktop tooling">
+            Java / JavaFX
+          </div>
+          <div class="skill-chip" data-detail="Memory-safe systems + protocol emulation">
+            C++
+          </div>
+          <div class="skill-chip" data-detail="Responsive UIs & WebSockets">
+            JavaScript / HTML / CSS
+          </div>
+          <div class="skill-chip" data-detail="Self-hosted services & automation">
+            Linux / Docker / n8n
+          </div>
+          <div class="skill-chip" data-detail="Reverse engineering foundations">
+            Assembly
+          </div>
+          <div class="skill-chip" data-detail="Open-source, security-first mindset">
+            Cybersecurity
+          </div>
+        </div>
+        <div class="skill-detail" id="skillDetail">
+          Hover to inspect module output.
+        </div>
+      </section>
+
+      <section id="lab" class="panel">
+        <div class="panel-header">
+          <h2>Lab Console</h2>
+          <p>Snapshots from my current experiments.</p>
+        </div>
+        <div class="lab-grid">
+          <article class="card lab-card">
+            <h3>Xbox 360 Protocol</h3>
+            <p>Tracing wireless packets, mapping authentication flow, and
+              replicating controller behavior on ESP32.</p>
+            <span class="tag">Reverse Engineering</span>
+          </article>
+          <article class="card lab-card">
+            <h3>Home Server Ops</h3>
+            <p>Self-hosted stack: Jellyfin, n8n task flows, custom monitoring dashboards.</p>
+            <span class="tag">Self-Hosting</span>
+          </article>
+          <article class="card lab-card">
+            <h3>Security Playground</h3>
+            <p>Protocol fuzzing, capture-the-flag practice, and threat modeling home infrastructure.</p>
+            <span class="tag">Cybersecurity</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="timeline" class="panel">
+        <div class="panel-header">
+          <h2>Signal Timeline</h2>
+          <p>Key checkpoints in my journey.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-date">2023</span>
+            <div>
+              <h3>Faculty of Science – Alexandria University</h3>
+              <p>Joined the Computer Science department, diving into algorithms, math foundations, and systems design.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2024</span>
+            <div>
+              <h3>Reverse Engineering Focus</h3>
+              <p>Started decoding Xbox 360 wireless protocol, mixing Assembly, C++, and networking analyzers.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2025</span>
+            <div>
+              <h3>Open-source + Self-hosting</h3>
+              <p>Publishing tooling, infrastructure configs, and contributing to security-driven communities.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="project-feed">
+        <div class="panel-header">
+          <h2>Live Projects Feed</h2>
+          <p>Pulling latest repositories from GitHub.</p>
+          <a class="pill pill-primary" href="projects.html">View Full Projects Deck</a>
+        </div>
+        <div class="project-grid" id="projectGrid">
+          <p class="muted">Fetching data...</p>
+        </div>
+      </section>
+
+      <section id="contact" class="panel">
+        <div class="panel-header">
+          <h2>Open Channels</h2>
+          <p>Ping me anywhere, anytime.</p>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-card" href="https://github.com/SaifDemos" target="_blank" rel="noreferrer">
+            <div class="contact-main">
+              <div class="contact-platform">
+                <span class="contact-icon">GH</span>
+                <span class="contact-name">GitHub</span>
+              </div>
+              <span class="contact-handle">@SaifDemos</span>
+            </div>
+          </a>
+          <a class="contact-card" href="https://www.youtube.com/@saifdemos4995" target="_blank" rel="noreferrer">
+            <div class="contact-main">
+              <div class="contact-platform">
+                <span class="contact-icon">YT</span>
+                <span class="contact-name">YouTube</span>
+              </div>
+              <span class="contact-handle">@saifdemos4995</span>
+            </div>
+          </a>
+          <a class="contact-card" href="https://stackoverflow.com/users/31873475/saifdemos" target="_blank" rel="noreferrer">
+            <div class="contact-main">
+              <div class="contact-platform">
+                <span class="contact-icon">SO</span>
+                <span class="contact-name">Stack Overflow</span>
+              </div>
+              <span class="contact-handle">@SaifDemos</span>
+            </div>
+          </a>
+          <a class="contact-card" href="https://www.instagram.com/saif_ayman_7706" target="_blank" rel="noreferrer">
+            <div class="contact-main">
+              <div class="contact-platform">
+                <span class="contact-icon">IG</span>
+                <span class="contact-name">Instagram</span>
+              </div>
+              <span class="contact-handle">@saif_ayman_7706</span>
+            </div>
+          </a>
+          <a class="contact-card" href="https://app.daily.dev/saifdemos" target="_blank" rel="noreferrer">
+            <div class="contact-main">
+              <div class="contact-platform">
+                <span class="contact-icon">DD</span>
+                <span class="contact-name">daily.dev</span>
+              </div>
+              <span class="contact-handle">@saifdemos</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <span>© 2025 · Saif Ayman Mohammed</span>
+        <span>Built with caffeine & ASCII sparks</span>
+      </div>
+      <button id="pulseSwitch" class="pill pill-ghost">Pulse Mode</button>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
+

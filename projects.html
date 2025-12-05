@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaifDemos // Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loader-core">
+        <div class="loader-ring"></div>
+        <div class="loader-ring"></div>
+        <div class="loader-ring"></div>
+        <div class="loader-text">
+          <span>Syncing GitHub intel...</span>
+          <span class="loader-progress" id="loaderProgress">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="matrix-bg" aria-hidden="true">
+      <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-badge">[root@Saif]</span>
+        <span class="brand-name">SaifDemos</span>
+        <span class="brand-cursor">_</span>
+      </a>
+      <a class="pill pill-ghost" href="index.html">← back</a>
+    </header>
+
+    <main>
+      <section class="panel projects-layout">
+        <div class="panel-header">
+          <h1>Projects Command Deck</h1>
+          <p>Pulling repositories straight from GitHub via REST API.</p>
+        </div>
+
+        <div class="projects-toolbar">
+          <input
+            id="searchInput"
+            class="search-input"
+            type="search"
+            placeholder="Search repositories..."
+          />
+          <select id="languageFilter" class="filter-select">
+            <option value="all">All languages</option>
+          </select>
+          <select id="sortOrder" class="filter-select">
+            <option value="updated">Recently updated</option>
+            <option value="stars">Most stars</option>
+          </select>
+        </div>
+
+        <div id="repoGrid" class="repo-grid">
+          <p class="muted">Fetching repositories...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Powered by GitHub REST API</span>
+      <button id="pulseSwitch" class="pill pill-ghost">Pulse Mode</button>
+    </footer>
+
+    <script src="projects.js" defer></script>
+  </body>
+</html>
+
